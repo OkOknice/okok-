@@ -5,6 +5,7 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
     state:{
+        //是否授权
         isAuthorization:'',
         user:{}
     },
@@ -18,6 +19,12 @@ const store = new Vuex.Store({
         },
         SET_USER (state,user){
             state.user = user
+        },
+        CLEAR_ISAUTHORIZATION (state){
+            state.isAuthorization = false
+        },
+        CLEAR_USER (state){
+            state.user = {}
         }
     },
     actions:{
@@ -26,6 +33,10 @@ const store = new Vuex.Store({
         },
         set_user ({commit},user){
             commit('SET_USER',user)
+        },
+        clear_user ({commit}){
+            commit('CLEAR_USER')
+            commit('CLEAR_ISAUTHORIZATION')
         }
     }
 })

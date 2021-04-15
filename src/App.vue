@@ -17,6 +17,7 @@ export default {
     }
   },
   methods:{
+    //判断穿进去的值是否是空字符串
     isEmpty (value){
       return (
         value === undefined ||

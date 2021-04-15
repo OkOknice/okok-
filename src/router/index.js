@@ -4,6 +4,9 @@ import VueRouter from 'vue-router'
 import Index from '../views/index.vue'
 import Register from '../views/register/register.vue'
 import Login from '../views/login/login.vue'
+import Home from '../views/home/home.vue'
+import UserInfo from '../views/userInfo/userInfo.vue'
+import FundList from '../views/fund/fundList.vue'
 import NotFound from '../views/404/404.vue'
 
 Vue.use(VueRouter)
@@ -18,7 +21,28 @@ const router = new VueRouter({
         {
             path:'/index',
             name:'index',
-            component:Index
+            component:Index,
+            children:[
+                {
+                    path:'',
+                    component:Home
+                },
+                {
+                    path:'/home',
+                    name:'home',
+                    component:Home
+                },
+                {
+                    path:'/userInfo',
+                    name:'userInfo',
+                    component:UserInfo
+                },
+                {
+                    path:'/fundList',
+                    name:'fundList',
+                    component:FundList
+                }
+            ]
         },
         {
             path:"/register",
